@@ -1,10 +1,47 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="{% static 'css/ol.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+        <title>Map-based application</title>
+    </head>
     <body>
+        <h1>My First Heading</h1>
 
-    <h1>My First Heading</h1>
+        <div style="display: inline-block;">
+            <select id="layer-select">
+                <option value="openStreetMap" selected>Open Street Map</option>
+                <option value="satellite">Satellite Map</option>
+                <option value="bingAerial">Bing Aerial Map</option>
+                <option value="mapboxMap">Mapbox Map</option>
+            </select>
+        </div>
 
-    <p>My first paragraph.</p>
+        <div style="display: inline-block;">
+            <button id="trackButton">
+                <img src="{% static '/img/radar.png' %}"/>
+            </button>
+        </div>
 
+
+        <div style="display: inline-block;">
+            <input type="checkbox" id="droneCheckbox" checked>
+            <label for="droneCheckbox"> Drones</label><br>
+            <input type="checkbox" id="submarineCheckbox" checked>
+            <label for="submarineCheckbox"> Submarines</label><br>
+        </div>
+
+
+        <div id="map" class="map">
+        </div>
+
+
+        <script src="{% static 'js/ol.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/markers.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/layers.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/map.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
     </body>
 </html>
