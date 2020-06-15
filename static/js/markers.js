@@ -35,8 +35,6 @@ for (i = 0; i < 4; i++) {
         population: 40000,
         rainfall: 500
     });
-    
-    iconFeature.setStyle(droneStyle);
     dronesFeature.push(iconFeature);
 }
 
@@ -52,8 +50,6 @@ for (i = 0; i < 4; i++) {
         population: 40000,
         rainfall: 500
     });
-    
-    iconFeature.setStyle(submarineStyle);
     submarineFeature.push(iconFeature);
 }
 
