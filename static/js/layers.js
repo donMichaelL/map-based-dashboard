@@ -52,10 +52,22 @@ var submarineMarkers = new ol.layer.Vector({
 ///////////////////////////////////////////////////
 
 // Shapes  ////////////////////////////////////
-var circlelayer = new ol.layer.Vector({
+var ring = [
+  [20.4370, 38.2022], [22.977,36.269466],
+  [23.977,38.269466], [20.4370, 38.2022]
+];
+var polygon = new ol.geom.Polygon([ring]);
+polygon.transform('EPSG:4326', 'EPSG:3857');
+var feature = new ol.Feature(polygon);
+
+
+var shapelayer = new ol.layer.Vector({
   source: new ol.source.Vector({
     projection: 'EPSG:4326',
-    features: [ new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([20.4370, 38.2022]), 10000))]
+    features: [ 
+      new ol.Feature(new ol.geom.Circle(ol.proj.fromLonLat([24.648, 40.684]), 40000)),
+      feature
+  ]
   }),
   style: [
     new ol.style.Style({
@@ -71,5 +83,5 @@ var circlelayer = new ol.layer.Vector({
 });
 ///////////////////////////////////////////////////
 
-layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, droneMarkers, submarineMarkers, circlelayer);
+layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, droneMarkers, submarineMarkers, shapelayer);
 
