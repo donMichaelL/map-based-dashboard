@@ -125,5 +125,5 @@ var source = new ol.source.Vector({
   });
 ///////////////////////////////////////////////////
 
-layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, droneMarkers, submarineMarkers, shapelayer, layerLines, flightsLayer);
+layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, shapelayer, layerLines, flightsLayer, droneMarkers, submarineMarkers);
 

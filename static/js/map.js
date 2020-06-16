@@ -1,15 +1,9 @@
-
-
-
-
-
-
 var map = new ol.Map({
     target: 'map',
     layers: layers,
     view: new ol.View({
       center: ol.proj.fromLonLat([20.4370, 38.2022]),
-      zoom: 6
+      zoom: 14
     })
   });
   
@@ -22,7 +16,7 @@ var map = new ol.Map({
         function(feature) {
           return feature;
         });
-      if (feature) {
+      if (dronesFeature.includes(feature) | submarineFeature.includes(feature)) {
         source.clear();
         var start = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
         var coordinates = [ start, [getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)], [getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)],[getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)],[getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)],];
@@ -53,7 +47,7 @@ var map = new ol.Map({
     });
 
 
-    // // Right Click
+  // // Right Click
     // map.addEventListener('contextmenu', function(e) {
     //   alert("You've tried to open context menu"); //here you draw your own menu
     //   e.preventDefault();
