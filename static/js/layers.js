@@ -108,8 +108,22 @@ var source = new ol.source.Vector({
       })
     ]
   });
-
+  var flightsSource = new ol.source.Vector();
+  var flightsLayer = new ol.layer.Vector({
+    source: flightsSource,
+    style: [
+      new ol.style.Style({
+        stroke: new ol.style.Stroke({
+          color: 'red',
+          width: 1
+        }),
+        fill: new ol.style.Fill({
+          color: 'rgba(0, 0, 255, 0.1)'
+        })
+      })
+    ]
+  });
 ///////////////////////////////////////////////////
 
-layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, droneMarkers, submarineMarkers, shapelayer, layerLines);
+layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, droneMarkers, submarineMarkers, shapelayer, layerLines, flightsLayer);
 
