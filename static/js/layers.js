@@ -81,7 +81,35 @@ var shapelayer = new ol.layer.Vector({
     })
   ]
 });
+
+// var coordinates = [ [26.4370, 38.2022], [22.977,36.269466],]; 
+// var lineGeom = new ol.geom.LineString(coordinates);
+// lineGeom.transform('EPSG:4326', 'EPSG:3857');
+// var lineFeature = new ol.Feature(lineGeom);
+
+var source = new ol.source.Vector({
+  projection: 'EPSG:4326',
+  features: [ 
+   // lineFeature
+]
+});
+
+  var layerLines = new ol.layer.Vector({
+    source: source,
+    style: [
+      new ol.style.Style({
+        stroke: new ol.style.Stroke({
+          color: 'black',
+          width: 1
+        }),
+        fill: new ol.style.Fill({
+          color: 'rgba(0, 0, 255, 0.1)'
+        })
+      })
+    ]
+  });
+
 ///////////////////////////////////////////////////
 
-layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, droneMarkers, submarineMarkers, shapelayer);
+layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, droneMarkers, submarineMarkers, shapelayer, layerLines);
 
