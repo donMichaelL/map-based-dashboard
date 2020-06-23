@@ -19,6 +19,8 @@ from django.views.generic import TemplateView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from vehicles.views import VehicleApiView
+
 
 schema_view = get_schema_view(
    openapi.Info(
@@ -37,6 +39,7 @@ class HomeView(TemplateView):
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home-page'),
+    path('vehicles/', VehicleApiView.as_view(), name='vehible-api-page'),
     path('admin/', admin.site.urls),
     path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc')
 ]
