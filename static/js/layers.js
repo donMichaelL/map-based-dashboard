@@ -1,11 +1,11 @@
 var layers = [];
 
 // Maps Layers ////////////////////////////////////
-var openStreetMap = new ol.layer.Tile({
+var openStreetMapLayer = new ol.layer.Tile({
   source: new ol.source.OSM()
 });
 
-var satteliteMap = new ol.layer.Tile({
+var satteliteMapLayer = new ol.layer.Tile({
   visible: false,
   source: new ol.source.XYZ({
     attributions: ['Powered by Esri',
@@ -15,7 +15,7 @@ var satteliteMap = new ol.layer.Tile({
   })
 });
 
-var bingAerialMap = new ol.layer.Tile({
+var bingAerialMapLayer = new ol.layer.Tile({
   visible: false,
   preload: Infinity,
   source: new ol.source.BingMaps({
@@ -24,7 +24,7 @@ var bingAerialMap = new ol.layer.Tile({
   })
 })
 
-var mapboxMap = new ol.layer.Tile({
+var mapboxMapLayer = new ol.layer.Tile({
   visible: false,
   source: new ol.source.XYZ({
     attributions: '©Mapbox',
@@ -35,33 +35,23 @@ var mapboxMap = new ol.layer.Tile({
 ///////////////////////////////////////////////////
 
 // Marker Layers  ////////////////////////////////////
-
 var uavLayer = new ol.layer.Vector({
-    source: new ol.source.Vector({
-        features: []
-    }),
+    source: new ol.source.Vector({}),
     style: uavStyle
 });
 
-
 var uuvLayer = new ol.layer.Vector({
-    source: new ol.source.Vector({
-        features: []
-    }),
+    source: new ol.source.Vector({}),
     style: uuvStyle
 });
 
 var ugvLayer = new ol.layer.Vector({
-  source: new ol.source.Vector({
-      features: []
-  }),
+  source: new ol.source.Vector({}),
   style: ugvStyle
 });
 
 var usvLayer = new ol.layer.Vector({
-  source: new ol.source.Vector({
-      features: []
-  }),
+  source: new ol.source.Vector({}),
   style: usvStyle
 });
 ///////////////////////////////////////////////////
@@ -140,5 +130,6 @@ var source = new ol.source.Vector({
   });
 ///////////////////////////////////////////////////
 
-layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, shapelayer, layerLines, flightsLayer, uavLayer, uuvLayer, ugvLayer, usvLayer);
+layers.push(openStreetMapLayer, satteliteMapLayer, bingAerialMapLayer, mapboxMapLayer, 
+            shapelayer, layerLines, flightsLayer, uavLayer, uuvLayer, ugvLayer, usvLayer);
 

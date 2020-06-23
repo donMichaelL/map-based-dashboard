@@ -13,7 +13,6 @@ select.addEventListener('change', function() {
 });
 
 
-
 var uavCheckbox = document.getElementById('uavCheckbox');
 uavCheckbox.addEventListener('change', function() {
   uavLayer.setVisible(uavCheckbox.checked);

@@ -6,7 +6,7 @@ var map = new ol.Map({
       zoom: 6
     })
   });
-  
+
   
   map.on('click', function(evt) {
       var feature = map.forEachFeatureAtPixel(evt.pixel,

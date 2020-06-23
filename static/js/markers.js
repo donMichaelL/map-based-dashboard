@@ -25,7 +25,6 @@ var ugvStyle = new ol.style.Style({
       })
 });
 
-
 var usvStyle = new ol.style.Style({
     image: new ol.style.Icon({
         anchorXUnits: 'fraction',

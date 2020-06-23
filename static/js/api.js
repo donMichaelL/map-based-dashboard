@@ -34,6 +34,7 @@ $.get( "/vehicles", function( data ) {
     refreshLayers();
 });
 
+ 
 
 function refreshLayers() {
     uavLayer.getSource().addFeatures(uavFeatures);
