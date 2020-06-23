@@ -16,6 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.views.generic import TemplateView
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+   openapi.Info(
+      title="MAP BASED APPLICATION API",
+      default_version='v1',
+      description="Based on Roborder API",
+   ),
+   public=True,
+   permission_classes=(permissions.AllowAny,),
+)
 
 class HomeView(TemplateView):
     template_name = "index.html"
@@ -25,4 +38,5 @@ class HomeView(TemplateView):
 urlpatterns = [
     path('', HomeView.as_view(), name='home-page'),
     path('admin/', admin.site.urls),
+    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc')
 ]
