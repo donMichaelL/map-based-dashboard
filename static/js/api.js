@@ -1,7 +1,7 @@
-var dronesFeature = [];
-var submarineFeature = [];
-var ugvFeature = [];
-var usvFeature = [];
+var uavFeatures = [];
+var uuvFeatures = [];
+var ugvFeatures = [];
+var usvFeatures = [];
 
 
 $.get( "/vehicles", function( data ) {
@@ -16,16 +16,16 @@ $.get( "/vehicles", function( data ) {
         });
         switch(element['type']) {
             case 'uav':
-                dronesFeature.push(iconFeature);
+                uavFeatures.push(iconFeature);
               break;
             case 'uuv':
-                submarineFeature.push(iconFeature);
+                uuvFeatures.push(iconFeature);
               break;
             case 'ugv':
-                ugvFeature.push(iconFeature);
+                ugvFeatures.push(iconFeature);
               break;
               case 'usv':
-                usvFeature.push(iconFeature);
+                usvFeatures.push(iconFeature);
               break;
             default:
               break;
@@ -36,12 +36,8 @@ $.get( "/vehicles", function( data ) {
 
 
 function refreshLayers() {
-    s=droneMarkers.getSource();
-    s.addFeatures(dronesFeature);
-    k=submarineMarkers.getSource();
-    k.addFeatures(submarineFeature);
-    l=ugvMarkers.getSource();
-    l.addFeatures(ugvFeature);
-    o=usvMarkers.getSource();
-    o.addFeatures(usvFeature);
+    uavLayer.getSource().addFeatures(uavFeatures);
+    uuvLayer.getSource().addFeatures(uuvFeatures);
+    ugvLayer.getSource().addFeatures(ugvFeatures);
+    usvLayer.getSource().addFeatures(usvFeatures);
 };

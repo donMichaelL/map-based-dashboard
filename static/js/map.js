@@ -7,16 +7,14 @@ var map = new ol.Map({
     })
   });
   
-
-  // map.on('postcompose', animateFlights);
-
   
   map.on('click', function(evt) {
       var feature = map.forEachFeatureAtPixel(evt.pixel,
         function(feature) {
           return feature;
         });
-      if (dronesFeature.includes(feature) | submarineFeature.includes(feature)) {
+      if (uavFeatures.includes(feature) | uuvFeatures.includes(feature) |
+          ugvFeatures.includes(feature) | usvFeatures.includes(feature)) {
         source.clear();
         var start = ol.proj.transform(evt.coordinate, 'EPSG:3857', 'EPSG:4326');
         var coordinates = [ start, [getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)], [getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)],[getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)],[getRandomInRange(20, 26, 4), getRandomInRange(33, 38, 4)],];

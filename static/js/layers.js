@@ -1,6 +1,6 @@
 var layers = [];
 
-// Maps  ////////////////////////////////////
+// Maps Layers ////////////////////////////////////
 var openStreetMap = new ol.layer.Tile({
   source: new ol.source.OSM()
 });
@@ -34,31 +34,31 @@ var mapboxMap = new ol.layer.Tile({
 })
 ///////////////////////////////////////////////////
 
-// Markers  ////////////////////////////////////
+// Marker Layers  ////////////////////////////////////
 
-var droneMarkers = new ol.layer.Vector({
+var uavLayer = new ol.layer.Vector({
     source: new ol.source.Vector({
         features: []
     }),
-    style: droneStyle
+    style: uavStyle
 });
 
 
-var submarineMarkers = new ol.layer.Vector({
+var uuvLayer = new ol.layer.Vector({
     source: new ol.source.Vector({
         features: []
     }),
-    style: submarineStyle
+    style: uuvStyle
 });
 
-var ugvMarkers = new ol.layer.Vector({
+var ugvLayer = new ol.layer.Vector({
   source: new ol.source.Vector({
       features: []
   }),
   style: ugvStyle
 });
 
-var usvMarkers = new ol.layer.Vector({
+var usvLayer = new ol.layer.Vector({
   source: new ol.source.Vector({
       features: []
   }),
@@ -66,7 +66,7 @@ var usvMarkers = new ol.layer.Vector({
 });
 ///////////////////////////////////////////////////
 
-// Shapes  ////////////////////////////////////
+// Shapes Layers ////////////////////////////////////
 var ring = [
   [20.4370, 38.2022], [22.977,36.269466],
   [23.977,38.269466], [20.4370, 38.2022]
@@ -140,5 +140,5 @@ var source = new ol.source.Vector({
   });
 ///////////////////////////////////////////////////
 
-layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, shapelayer, layerLines, flightsLayer, droneMarkers, submarineMarkers, ugvMarkers, usvMarkers);
+layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, shapelayer, layerLines, flightsLayer, uavLayer, uuvLayer, ugvLayer, usvLayer);
 

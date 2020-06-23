@@ -1,4 +1,4 @@
-var droneStyle = new ol.style.Style({
+var uavStyle = new ol.style.Style({
     image: new ol.style.Icon({
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
@@ -7,7 +7,7 @@ var droneStyle = new ol.style.Style({
       })
 });
 
-var submarineStyle = new ol.style.Style({
+var uuvStyle = new ol.style.Style({
     image: new ol.style.Icon({
         anchorXUnits: 'fraction',
         anchorYUnits: 'fraction',
