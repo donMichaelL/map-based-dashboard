@@ -8,7 +8,11 @@
         <title>Map-based application</title>
     </head>
     <body>
-        <h1>My First Heading</h1>
+        <h1>Map Based Application
+            <span style="font-size: medium;">
+                <a href="redoc/">api docs</a>
+            </span>
+        </h1>
 
         <div style="display: inline-block;">
             <select id="layer-select">
@@ -31,12 +35,13 @@
             <label for="uavCheckbox"> UAV</label><br>
             <input type="checkbox" id="uuvCheckbox" checked>
             <label for="uuvCheckbox"> UUV</label><br>
+        </div>
+        <div style="display: inline-block;">
             <input type="checkbox" id="ugvCheckbox" checked>
             <label for="ugvCheckbox"> UGV</label><br>
             <input type="checkbox" id="usvCheckbox" checked>
             <label for="usvCheckbox"> USV</label><br>
         </div>
-
 
         <div id="map" class="map">
         </div>
