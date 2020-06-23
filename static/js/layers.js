@@ -38,16 +38,31 @@ var mapboxMap = new ol.layer.Tile({
 
 var droneMarkers = new ol.layer.Vector({
     source: new ol.source.Vector({
-        features: dronesFeature
+        features: []
     }),
     style: droneStyle
 });
 
+
 var submarineMarkers = new ol.layer.Vector({
     source: new ol.source.Vector({
-        features: submarineFeature
+        features: []
     }),
     style: submarineStyle
+});
+
+var ugvMarkers = new ol.layer.Vector({
+  source: new ol.source.Vector({
+      features: []
+  }),
+  style: ugvStyle
+});
+
+var usvMarkers = new ol.layer.Vector({
+  source: new ol.source.Vector({
+      features: []
+  }),
+  style: usvStyle
 });
 ///////////////////////////////////////////////////
 
@@ -125,5 +140,5 @@ var source = new ol.source.Vector({
   });
 ///////////////////////////////////////////////////
 
-layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, shapelayer, layerLines, flightsLayer, droneMarkers, submarineMarkers);
+layers.push(openStreetMap, satteliteMap, bingAerialMap, mapboxMap, shapelayer, layerLines, flightsLayer, droneMarkers, submarineMarkers, ugvMarkers, usvMarkers);
 

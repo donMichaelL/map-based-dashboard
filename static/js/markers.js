@@ -16,37 +16,26 @@ var submarineStyle = new ol.style.Style({
       })
 });
 
+var ugvStyle = new ol.style.Style({
+    image: new ol.style.Icon({
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'fraction',
+        size: [32, 32],
+        src: 'static/img/war.png'
+      })
+});
+
+
+var usvStyle = new ol.style.Style({
+    image: new ol.style.Icon({
+        anchorXUnits: 'fraction',
+        anchorYUnits: 'fraction',
+        size: [32, 32],
+        src: 'static/img/yacht.png'
+      })
+});
+
 // Markers ////////////////////////////////////
-
-var dronesFeature = [];
-
-for (i = 0; i < 4; i++) {
-    var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([
-            getRandomInRange(23, 28, 4), 
-            getRandomInRange(37, 40, 4)])),
-        name: 'Icon Marker',
-        population: 40000,
-        rainfall: 500
-    });
-    dronesFeature.push(iconFeature);
-}
-
-
-var submarineFeature = [];
-
-for (i = 0; i < 4; i++) {
-    var iconFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([
-            getRandomInRange(20, 23, 4), 
-            getRandomInRange(33, 35, 4)])),
-        name: 'Icon Marker',
-        population: 40000,
-        rainfall: 500
-    });
-    submarineFeature.push(iconFeature);
-}
-
 
 var positionFeature = new ol.Feature();
 positionFeature.setStyle(new ol.style.Style({
