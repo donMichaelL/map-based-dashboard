@@ -13,7 +13,16 @@ VEHICLE_TYPE = (
     ('uuv', 'uuv'),
 )
 
-class Vehicle(models.Model):
+class LocationModel(models.Model):
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
+    altitude = models.DecimalField(max_digits=9, decimal_places=6)
+
+    class Meta:
+        abstract = True
+
+
+class Vehicle(LocationModel):
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=10, choices=VEHICLE_TYPE)
     description = models.TextField()
