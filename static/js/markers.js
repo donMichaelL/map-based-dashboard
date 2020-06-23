@@ -18,12 +18,6 @@ var submarineStyle = new ol.style.Style({
 
 // Markers ////////////////////////////////////
 
-var simpleCircleFeature = new ol.Feature({
-        geometry: new ol.geom.Point(ol.proj.fromLonLat([72, 37.983810]))
-    });
-
-
-
 var dronesFeature = [];
 
 for (i = 0; i < 4; i++) {

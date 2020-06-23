@@ -38,7 +38,7 @@ var mapboxMap = new ol.layer.Tile({
 
 var droneMarkers = new ol.layer.Vector({
     source: new ol.source.Vector({
-        features: [simpleCircleFeature].concat(dronesFeature)
+        features: dronesFeature
     }),
     style: droneStyle
 });
