@@ -9,6 +9,7 @@ var map = new ol.Map({
 
   
   map.on('click', function(evt) {
+    $("#mapMenu").removeClass("show").hide();
       var feature = map.forEachFeatureAtPixel(evt.pixel,
         function(feature) {
           return feature;
@@ -46,10 +47,23 @@ var map = new ol.Map({
 
 
   // // Right Click
-    // map.addEventListener('contextmenu', function(e) {
-    //   alert("You've tried to open context menu"); //here you draw your own menu
-    //   e.preventDefault();
-    // }, false);
+    map.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      var feature = map.forEachFeatureAtPixel(e.pixel,  function(feature) {
+        return feature;
+      });
+      if (uavFeatures.includes(feature) | uuvFeatures.includes(feature) |
+      ugvFeatures.includes(feature) | usvFeatures.includes(feature)) {
+
+      } else {
+        $("#mapMenu").css({
+          display: "block",
+          top: e.originalEvent.pageY - 6,
+          left: e.originalEvent.pageX
+        }).addClass("show");
+        console.log(e.originalEvent.pageX);
+      }
+    }, false);
 
 // Geolocation User ///////////////////////////////////////////////////
     var view = new ol.View({
@@ -77,3 +91,5 @@ var map = new ol.Map({
       })
     });
 ///////////////////////////////////////////////////
+
+$(".dropdown-item").on('contextmenu', function(e) { e.preventDefault();});
