@@ -89,11 +89,18 @@ map.addEventListener('contextmenu', function(e) {
     });
 ///////////////////////////////////////////////////
 
+////////////// right click menu /////////////////////////////
 $(".dropdown-item").on('contextmenu', function(e) { e.preventDefault();});
 document.getElementById('zoomContextMenu').addEventListener('click', function(e){
   animateTo(rightClickPosition);
 });
+document.getElementById('refreshContextMenu').addEventListener('click', function(e){
+  $("#mapMenu").removeClass("show").hide();
+  refreshMap();
+});
+///////////////////////////////////////////
 
+////////////// right click menu helpers /////////////////////////////
 
 function animateTo(location, duration=2000 ,zoom=7) {
   $("#mapMenu").removeClass("show").hide();
@@ -104,3 +111,13 @@ function animateTo(location, duration=2000 ,zoom=7) {
   }, function(){ 
   });
 }
+
+function refreshMap(){
+  uavFeatures = [];
+  uuvFeatures = [];
+  ugvFeatures = [];
+  usvFeatures = [];
+
+  getVehicles();
+};
+///////////////////////////////////////////
