@@ -12,7 +12,7 @@ function getVehicles() {
               geometry: new ol.geom.Point(ol.proj.fromLonLat([
                   element['home_location']['longitude'], 
                   element['home_location']['latitude']])),
-              name: 'Icon Marker',
+              name: element['name'],
               population: 40000,
               rainfall: 500
           });

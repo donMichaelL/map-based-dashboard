@@ -1,6 +1,6 @@
 var currentView = new ol.View({
   center: ol.proj.fromLonLat([20.4370, 38.2022]),
-  zoom: 6
+  zoom: 1
 });
 
 var map = new ol.Map({
@@ -47,6 +47,28 @@ map.on('click', function(evt) {
   }
 });
 
+// Hover
+map.on('pointermove', function(evt) {
+  var feature = map.forEachFeatureAtPixel(evt.pixel,
+    function(feature) {
+      return feature;
+    });
+  if (uavFeatures.includes(feature) | uuvFeatures.includes(feature) |
+      ugvFeatures.includes(feature) | usvFeatures.includes(feature)) {
+        document.getElementById('labelOverlay').innerHTML = feature.values_["name"];
+        document.getElementById('labelOverlay').style.display = "block";
+        var vienna = new ol.Overlay({
+          position: feature.getGeometry().getCoordinates(),
+          element: document.getElementById('labelOverlay')
+        });
+        map.addOverlay(vienna);
+  } else {
+    document.getElementById('labelOverlay').style.display = "none";
+  }
+});
+  
+
+  
  // Right Click
  var rightClickPosition;
 map.addEventListener('contextmenu', function(e) {
