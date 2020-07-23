@@ -1,18 +1,6 @@
 from django.db import models
 
 
-VEHICLE_STATUS = (
-    ('free', 'free'),
-    ('busy', 'busy'),
-)
-
-VEHICLE_TYPE = (
-    ('ugv', 'ugv'),
-    ('uav', 'uav'),
-    ('usv', 'usv'),
-    ('uuv', 'uuv'),
-)
-
 class LocationModel(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6)
     longitude = models.DecimalField(max_digits=9, decimal_places=6)
@@ -23,6 +11,18 @@ class LocationModel(models.Model):
 
 
 class Vehicle(LocationModel):
+    VEHICLE_STATUS = (
+    ('free', 'free'),
+    ('busy', 'busy'),
+    )
+
+    VEHICLE_TYPE = (
+        ('ugv', 'ugv'),
+        ('uav', 'uav'),
+        ('usv', 'usv'),
+        ('uuv', 'uuv'),
+    )
+    
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=10, choices=VEHICLE_TYPE)
     description = models.TextField()
